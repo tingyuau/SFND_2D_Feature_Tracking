@@ -170,3 +170,51 @@ void detKeypointsHarris(vector<cv::KeyPoint> &keypoints, cv::Mat &img, bool bVis
       cv::waitKey(0);
     }
 }
+
+// Detect keypoints in image using the modern detectors
+void detKeypointsModern(vector<cv::KeyPoint> &keypoints, cv::Mat &img, string detectorType, bool bVis)
+{
+    // select different detectors and apply opencv algorithms
+    if (detectorType.compare("FAST") == 0)
+    {
+        double t = (double)cv::getTickCount();
+        int threshold = 10;
+        cv::Ptr<cv::FastFeatureDetector> detector = cv::FastFeatureDetector::create(threshold, true, cv::FastFeatureDetector::TYPE_9_16);
+        detector->detect(img, keypoints);
+        t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
+        cout << "FAST detection with n=" << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
+    }
+    else if (detectorType.compare("BRISK") == 0)
+    {
+
+    }
+    else if (detectorType.compare("ORB") == 0)
+    {
+
+    }
+    else if (detectorType.compare("AKAZE") == 0)
+    {
+
+    }
+    else if (detectorType.compare("SIFT") == 0)
+    {
+
+    }
+    else
+    {
+        cout << "Detector not recognised." << endl;
+    }
+
+    // visualise results
+    if (bVis)
+    {
+        cv::Mat visImage = img.clone();
+        cv::drawKeypoints(img, keypoints, visImage, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_RICH_KEYPOINTS);
+        string windowName = detectorType + " Detector Results";
+        cv::namedWindow(windowName, 6);
+        imshow(windowName, visImage);
+        cv::waitKey(0);
+    }
+
+
+}
