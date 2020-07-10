@@ -186,7 +186,14 @@ void detKeypointsModern(vector<cv::KeyPoint> &keypoints, cv::Mat &img, string de
     }
     else if (detectorType.compare("BRISK") == 0)
     {
-
+        double t = (double)cv::getTickCount();
+        int thresh = 30;
+        int octaves = 3;
+        float patternScale = 1.0f;
+        cv::Ptr<cv::BRISK> detector = cv::BRISK::create(thresh, octaves, patternScale);
+        detector->detect(img, keypoints);
+        t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
+        cout << "BRISK detection with n=" << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << "ms" <<endl;
     }
     else if (detectorType.compare("ORB") == 0)
     {
