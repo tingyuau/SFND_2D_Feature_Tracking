@@ -123,7 +123,16 @@ int main(int argc, const char *argv[])
         cv::Rect vehicleRect(535, 180, 180, 150);
         if (bFocusOnVehicle)
         {
-            // ...
+            cout << "before popping: " << keypoints.size() <<endl;
+            for (int i = 0; i < keypoints.size(); ++i)
+            {
+                if ( !vehicleRect.contains(keypoints[i].pt))
+                {
+                    swap(keypoints[i], keypoints.back());
+                    keypoints.pop_back();
+                }
+            }
+            cout << "after popping: " << keypoints.size() <<endl;
         }
 
         //// EOF STUDENT ASSIGNMENT
