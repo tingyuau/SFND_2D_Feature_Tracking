@@ -179,7 +179,9 @@ void detKeypointsModern(vector<cv::KeyPoint> &keypoints, cv::Mat &img, string de
     {
         double t = (double)cv::getTickCount();
         int threshold = 10;
-        cv::Ptr<cv::FastFeatureDetector> detector = cv::FastFeatureDetector::create(threshold, true, cv::FastFeatureDetector::TYPE_9_16);
+        bool nonmaxSuppression = true;
+        cv::FastFeatureDetector::DetectorType type = cv::FastFeatureDetector::TYPE_9_16;
+        cv::Ptr<cv::FastFeatureDetector> detector = cv::FastFeatureDetector::create(threshold, nonmaxSuppression, type);
         detector->detect(img, keypoints);
         t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
         cout << "FAST detection with n=" << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << " ms" << endl;
@@ -225,11 +227,20 @@ void detKeypointsModern(vector<cv::KeyPoint> &keypoints, cv::Mat &img, string de
         cv::Ptr<cv::AKAZE> detector = cv::AKAZE::create(descriptor_type, descriptor_size, descriptor_channels, threshold, nOctaves, nOctaveLayers, diffusivity);
         detector->detect(img, keypoints);
         t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
-        cout << "AKAZE detection with n =" << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << "ms" <<endl;
+        cout << "AKAZE detection with n=" << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << "ms" <<endl;
     }
     else if (detectorType.compare("SIFT") == 0)
     {
-
+        double t = (double)cv::getTickCount();
+        int nfeatures = 0;
+        int nOctaveLayers = 3;
+        double contrastThreshold = 0.04;
+        double edgeThreshold = 10;
+        double sigma = 1.6;
+        cv::Ptr<cv::xfeatures2d::SIFT> detector = cv::xfeatures2d::SIFT::create(nfeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma);
+        detector->detect(img, keypoints);
+        t = ((double)cv::getTickCount() - t) / cv::getTickFrequency();
+        cout << "SIFT detection with n=" << keypoints.size() << " keypoints in " << 1000 * t / 1.0 << "ms" <<endl;
     }
     else
     {
