@@ -74,6 +74,12 @@ opencv2/xfeatures2d/nonfree.hpp
 dataStructures.h
 /Users/tingyuau/Documents/GitHub/SFND_2D_Feature_Tracking/src/dataStructures.h
 
+/Users/tingyuau/Documents/GitHub/SFND_2D_Feature_Tracking/src/matching2D_Student.cpp
+numeric
+-
+matching2D.hpp
+/Users/tingyuau/Documents/GitHub/SFND_2D_Feature_Tracking/src/matching2D.hpp
+
 /usr/local/Cellar/opencv/4.3.0_4/include/opencv4/opencv2/core.hpp
 opencv2/core/cvdef.h
 /usr/local/Cellar/opencv/4.3.0_4/include/opencv4/opencv2/opencv2/core/cvdef.h
