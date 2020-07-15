@@ -43,6 +43,7 @@ void matchDescriptors(std::vector<cv::KeyPoint> &kPtsSource, std::vector<cv::Key
         }
 
     }
+    cout << "Matched keypoints: " << matches.size() << endl;
 }
 
 // Use one of several types of state-of-art descriptors to uniquely identify keypoints
@@ -58,6 +59,13 @@ void descKeypoints(vector<cv::KeyPoint> &keypoints, cv::Mat &img, cv::Mat &descr
         float patternScale = 1.0f; // apply this scale to the pattern used for sampling the neighbourhood of a keypoint.
 
         extractor = cv::BRISK::create(threshold, octaves, patternScale);
+    }
+    else if (descriptorType.compare("BRIEF") == 0)
+    {
+        int bytes = 32;
+        bool use_orientation = false;
+
+        extractor = cv::xfeatures2d::BriefDescriptorExtractor::create(bytes, use_orientation);
     }
     else if (descriptorType.compare("ORB") == 0)
     {
