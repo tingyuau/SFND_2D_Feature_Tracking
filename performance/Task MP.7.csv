@@ -1,0 +1,12 @@
+Image (# keypoints),Shi-Tomasi,Harris,FAST,BRISK,ORB,AKAZE,SIFT
+1,1370,115,5063,2757,500,1351,1438
+2,1301,98,4952,2777,500,1327,1371
+3,1361,113,4863,2741,500,1311,1380
+4,1358,121,4840,2735,500,1351,1335
+5,1333,160,4856,2757,500,1360,1304
+6,1284,383,4899,2695,500,1347,1369
+7,1322,85,4870,2715,500,1363,1396
+8,1366,210,4868,2628,500,1331,1382
+9,1389,171,4996,2639,500,1357,1462
+10,1339,281,4997,2672,500,1331,1422
+neighbourhood size,spread across whole image,most of the points are located in the bottom half of the image and particularly the left side,most of the points are located in the bottom half of the image and particularly the left side,Points are more focused on the preceding vehicle with some detected on the boundary ,Points are more focused on the preceding vehicle with some detected on other cars or the ground,"Points are more spread across the preceding area, covering some of the preceding vehicle but also other vehicles ",Points are detected on the furthest vehicles and only some are on the preceding vehicle.
