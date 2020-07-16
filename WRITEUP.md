@@ -10,7 +10,7 @@ This writeup provides details of the work corresponding to each rubic point.
 ### Keypoints
 | Task | Work |
 | - | - |
-| MP.2 Keypoint Detection | `MidTermProject_Camera_Student.cpp` (lines 80-116) <br> Implemented selectable options for different types of detectors based on string. <br> `matching2D_Student.cpp` (lines 160-322) <br> Implemented Harris corner detector manually and modern detectors using opencv. | 
+| MP.2 Keypoint Detection | `MidTermProject_Camera_Student.cpp` (lines 80-116) <br> Implemented selectable options for different types of detectors based on string. <br> `matching2D_Student.cpp` (lines 160-322) <br> Implemented Harris corner detector manually and modern detectors using opencv. |
 | MP.3 Keypoint Removal | `MidTermProject_Camera_Student.cpp` (lines 118 - 136) <br> Removed keypoints not contained in the pre-defined rectangle. |
 
 ### Descriptors
@@ -23,6 +23,6 @@ This writeup provides details of the work corresponding to each rubic point.
 ### Performance
 | Task | Work |
 | - | - |
-| MP.7 Performance Evaluation 1 | `MidTermProject_Camera_Student.cpp` (lines ) <br> |
-| MP.8 Performance Evaluation 2 | `MidTermProject_Camera_Student.cpp` (lines ) <br> |
-| MP.9 Performance Evaluation 3 | `MidTermProject_Camera_Student.cpp` (lines ) <br> |
+| MP.7 Performance Evaluation 1 | see `Task MP.7.csv` in `performance` directory |
+| MP.8 Performance Evaluation 2 | see `Task MP.8.csv` in `performance` directory |
+| MP.9 Performance Evaluation 3 | see `Task MP.9.csv` in `performance` directory |
